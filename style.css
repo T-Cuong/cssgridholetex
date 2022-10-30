@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0; 
+}
+
+body{
+    padding: 20px
+}
+
+.item {
+    background-color: gold;
+    border: 1px solid grey;
+    min-height: 50px;/*thiet lap chieu cao toi thieu , thu doi min-height thanh height se thay su khac biet*/
+}
+
+.container {/*thiet lap grid cho container*/
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(3, 1fr);/*tao ra 3 cot bang nhau fr la viet tat cua fraction la tung phan doan */
+    grid-template-rows: 100px 1fr 1fr 100px ;/*chieu cao cua container - 100px item 1 - 100px item 5 con lai se chia doi cho item 3 va item 4*/
+    /* grid-template-rows: 100px 200px 100px;chia grid thanh 3 hang hang 1 là 100px hang 2 la 200px hang 3 la 100px */
+    /* grid-auto-rows: 200px;xet auto cho cac row co do dai 200px */
+    /* grid-auto-rows: minmax(60px, auto);gia tri nho nhat cua tung row la 60px nhung truong hop content vuot qua 60px thi no se lay theo chieu cao cua content do */
+    grid-template-areas: 
+    /* "aa aa aa" */
+    /* "cc bb bb" */
+    /* "cc bb bb" */
+    "header header header"
+    "sidebar content content"
+    "sidebar comment comment"
+    "footer footer footer";
+    column-gap: 10px;/*khoang cach giua cac cot la 10px */
+    row-gap: 10px; /*khoang cach giua cac row la 10px*/
+}
+
+.item-1 {
+    grid-area: header;
+}
+
+.item-2 {
+    grid-area: sidebar;
+}
+
+.item-3 {
+    grid-area: content;
+}
+
+.item-5{
+    /* grid-column: 2 / 4;so cot item5 bat dau tu grid line 2 den 4 */
+    /* grid-row: 2/ 4; so hang item 5 bat dau tu grid line tu 2 den 4 */
+    grid-area: footer;
+}
+
+.item-4{
+    /* grid-row: 2 / 5; so hang item 4 bat dau tu grid line 2 den 5 */
+    grid-area: comment;
+}
